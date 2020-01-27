@@ -1,4 +1,4 @@
-FROM sqlwwx/alinode:5.13.0
+FROM sqlwwx/alinode
 
 RUN apk add --no-cache git openssh-client \
   && mkdir -p $HOME/.ssh && chmod 700 $HOME/.ssh \
