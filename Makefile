@@ -13,4 +13,6 @@ publish:
 	docker push sqlwwx/alinode-builder:$(COMMIT_HASH)
 	docker push sqlwwx/alinode-builder:latest
 
+all: build publish
+
 .PHONY: build publish
