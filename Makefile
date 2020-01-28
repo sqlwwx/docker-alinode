@@ -1,5 +1,5 @@
-VERSION=$(shell git describe --tags `git rev-list --tags --max-count=1` | sed -e 's/^v//')
-RELEASES=patch minor major
+VERSION ?= $(shell git describe --tags `git rev-list --tags --max-count=1` | sed -e 's/^v//')
+RELEASES = patch minor major
 
 build:
 	docker build -t sqlwwx/alinode:$(VERSION) -t sqlwwx/alinode:latest .

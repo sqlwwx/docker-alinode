@@ -30,8 +30,7 @@ jobs:
             docker-compose --file docker-compose.test.yml build
             docker-compose --file docker-compose.test.yml run sut
           else
-            git describe --tags `git rev-list --tags --max-count=1` | sed -e 's/^v//'
-            make build
+            make build VERSION=test
           fi
   # Push image to GitHub Package Registry.
   # See also https://docs.docker.com/docker-hub/builds/
@@ -43,6 +42,8 @@ jobs:
     if: github.event_name == 'push'
 
     steps:
+      - uses: actions/checkout@master
+
       - name: Log into registry
         run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login --username sqlwwx --password-stdin
 
