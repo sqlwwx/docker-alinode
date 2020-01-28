@@ -1,17 +1,17 @@
-COMMIT_HASH = $(shell git rev-parse --short HEAD)
-RELEASES = patch minor major
+VERSION=$(shell git describe --tags `git rev-list --tags --max-count=1` | sed -e 's/^v//')
+RELEASES=patch minor major
 
 build:
-	docker build -t sqlwwx/alinode:$(COMMIT_HASH) -t sqlwwx/alinode:latest .
-	docker build -f Dockerfile.git -t sqlwwx/alinode-git:$(COMMIT_HASH) -t sqlwwx/alinode-git:latest .
-	docker build -f Dockerfile.builder -t sqlwwx/alinode-builder:$(COMMIT_HASH) -t sqlwwx/alinode-builder:latest .
+	docker build -t sqlwwx/alinode:$(VERSION) -t sqlwwx/alinode:latest .
+	docker build -f Dockerfile.git -t sqlwwx/alinode-git:$(VERSION) -t sqlwwx/alinode-git:latest .
+	docker build -f Dockerfile.builder -t sqlwwx/alinode-builder:$(VERSION) -t sqlwwx/alinode-builder:latest .
 
 publish:
-	docker push sqlwwx/alinode:$(COMMIT_HASH)
+	docker push sqlwwx/alinode:$(VERSION)
 	docker push sqlwwx/alinode:latest
-	docker push sqlwwx/alinode-git:$(COMMIT_HASH)
+	docker push sqlwwx/alinode-git:$(VERSION)
 	docker push sqlwwx/alinode-git:latest
-	docker push sqlwwx/alinode-builder:$(COMMIT_HASH)
+	docker push sqlwwx/alinode-builder:$(VERSION)
 	docker push sqlwwx/alinode-builder:latest
 
 all: build publish
