@@ -1,4 +1,5 @@
 COMMIT_HASH = $(shell git rev-parse --short HEAD)
+RELEASES = patch minor major
 
 build:
 	docker build -t sqlwwx/alinode:$(COMMIT_HASH) -t sqlwwx/alinode:latest .
@@ -14,5 +15,10 @@ publish:
 	docker push sqlwwx/alinode-builder:latest
 
 all: build publish
+
+.PHONY: $(RELEASES)
+$(RELEASES):
+	$(PWD)/node_modules/.bin/standard-version --release-as $@
+	git push --follow-tags origin master
 
 .PHONY: build publish
