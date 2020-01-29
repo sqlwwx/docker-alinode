@@ -1,6 +1,6 @@
 {
   "name": "docker-alinode",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "private": true,
   "repository": "git@github.com:sqlwwx/docker-alinode.git",
   "author": "sqlwwx <wwx@wuweixing.com>",
