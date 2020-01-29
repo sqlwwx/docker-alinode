@@ -24,8 +24,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-      - uses: actions/checkout
+      - uses: actions/checkout@mater
 
       - name: ls1
         run: |
