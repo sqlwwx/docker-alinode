@@ -24,12 +24,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@mater
-
-      - name: ls1
+      - name: clone
         run: |
-          ls -lha
-          git pull
+          git clone https://github.com/sqlwwx/docker-alinode.git
           ls -lha
 
       - name: Run tests
