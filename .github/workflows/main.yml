@@ -37,8 +37,7 @@ jobs:
             docker-compose --file docker-compose.test.yml build
             docker-compose --file docker-compose.test.yml run sut
           else
-            ls -l
-            make build VERSION=$(VERSION)
+            make build
           fi
   # Push image to GitHub Package Registry.
   # See also https://docs.docker.com/docker-hub/builds/
