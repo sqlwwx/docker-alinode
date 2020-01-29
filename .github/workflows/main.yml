@@ -24,7 +24,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: ls1
+        run: |
+          ls -lh
+        
       - uses: actions/checkout@master
+
+      - name: ls1
+        run: |
+          ls -lh
 
       - name: Run tests
         run: |
@@ -34,6 +42,7 @@ jobs:
             docker-compose --file docker-compose.test.yml build
             docker-compose --file docker-compose.test.yml run sut
           else
+            ls -l
             make build VERSION=$(VERSION)
           fi
   # Push image to GitHub Package Registry.
