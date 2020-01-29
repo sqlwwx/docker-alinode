@@ -24,15 +24,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: ls1
-        run: |
-          ls -lh
-        
-      - uses: actions/checkout@master
+
+      - uses: actions/checkout
 
       - name: ls1
         run: |
-          ls -lh
+          ls -lha
+          git pull
+          ls -lha
 
       - name: Run tests
         run: |
