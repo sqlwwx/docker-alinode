@@ -61,4 +61,4 @@ jobs:
           cd docker-alinode
           VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
           [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-          make publish VERSION=$(VERSION)
+          make all
