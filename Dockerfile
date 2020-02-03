@@ -18,4 +18,6 @@ COPY --from=builder / /
 
 ENV NODE_ENV production
 
+RUN npm i -g yarn
+
 WORKDIR /app
