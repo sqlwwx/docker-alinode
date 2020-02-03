@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/sqlwwx/docker-alinode/compare/v1.0.0...v1.0.1) (2020-02-03)
+
+
+### Bug Fixes
+
+* add yarn ([9c3d062](https://github.com/sqlwwx/docker-alinode/commit/9c3d062b6f1dfe9c31141607ccf665204001209c))
+
 ## [1.0.0](https://github.com/sqlwwx/docker-alinode/compare/v0.0.4...v1.0.0) (2020-01-29)
 
 ### [0.0.4](https://github.com/sqlwwx/docker-alinode/compare/v0.0.3...v0.0.4) (2020-01-28)
