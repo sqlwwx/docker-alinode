@@ -1,4 +1,4 @@
-FROM registry.cn-hangzhou.aliyuncs.com/aliyun-node/alinode:5.15.0-alpine as builder
+FROM registry.cn-hangzhou.aliyuncs.com/aliyun-node/alinode:v6.1.0-alpine as builder
 
 RUN rm -rf /root/.npm/_cacache
 
