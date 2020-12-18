@@ -9,3 +9,11 @@ sqlwwx/alinode
 sqlwwx/alinode-git
 sqlwwx/alinode-builder
 ```
+
+# clean
+```
+find /var/ -size +10
+du --max-depth=1 .
+find /usr/lib/node_modules/ -name *.md | xargs rm
+rm -rf /var/cache/apk/*
+```

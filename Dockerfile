@@ -1,22 +1,24 @@
 FROM registry.cn-hangzhou.aliyuncs.com/aliyun-node/alinode:v6.4.1-alpine as builder
 
-RUN rm -rf /root/.npm/_cacache
-
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
-  && apk update \
-  && apk upgrade --no-cache \
+  && apk update --no-cache -v \
+  && apk upgrade --no-cache -v \
   && apk add --no-cache \
      tzdata \
-  && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-  && echo "Asia/Shanghai" > /etc/timezone
+  && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+  && echo "Asia/Shanghai" > /etc/timezone \
+  && apk del tzdata \
+  && rm -rf /var/cache/apk/*
 
 RUN npm config set registry https://registry.npm.taobao.org
 
-RUN npm i -g npm \
-  && npm i -g yarn \
-  && rm -rf /tmp/* && rm -rf $HOME/.npm/_cacache
+RUN npm i -g npm yarn \
+  && rm -rf /tmp/* && rm -rf $HOME/.npm/_cacache \
+  && find /usr/lib/node_modules/ -name *.md | xargs rm -rf \
+  && find /usr/lib/node_modules/ -name docs -type d | xargs rm -rf \
+  && find /usr/lib/node_modules/ -name doc -type d | xargs rm -rf
 
-FROM alpine
+FROM scratch
 
 COPY --from=builder / /
 

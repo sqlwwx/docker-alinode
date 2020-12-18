@@ -1,10 +1,10 @@
-VERSION ?= $(shell git describe --tags `git rev-list --tags --max-count=1` | sed -e 's/^v//')
+VERSION = 6.4.1
 RELEASES = patch minor major
 
 build:
 	docker build -t sqlwwx/alinode:$(VERSION) -t sqlwwx/alinode:latest .
-	docker build -f Dockerfile.git -t sqlwwx/alinode-git:$(VERSION) -t sqlwwx/alinode-git:latest .
-	docker build -f Dockerfile.builder -t sqlwwx/alinode-builder:$(VERSION) -t sqlwwx/alinode-builder:latest .
+	# docker build -f Dockerfile.git -t sqlwwx/alinode-git:$(VERSION) -t sqlwwx/alinode-git:latest .
+	# docker build -f Dockerfile.builder -t sqlwwx/alinode-builder:$(VERSION) -t sqlwwx/alinode-builder:latest .
 
 publish:
 	docker push sqlwwx/alinode:$(VERSION)
