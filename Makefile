@@ -1,4 +1,4 @@
-VERSION = 6.4.1
+VERSION ?=$(shell node -p "require('./package.json').version")
 RELEASES = patch minor major
 
 build:
