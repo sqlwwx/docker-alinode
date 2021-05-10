@@ -4,8 +4,5 @@
   "private": true,
   "repository": "git@github.com:sqlwwx/docker-alinode.git",
   "author": "sqlwwx <wwx@wuweixing.com>",
-  "license": "MIT",
-  "devDependencies": {
-    "standard-version": "^9.0.0"
-  }
+  "license": "MIT"
 }

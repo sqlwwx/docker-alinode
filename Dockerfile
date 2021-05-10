@@ -1,4 +1,4 @@
-FROM registry.cn-hangzhou.aliyuncs.com/aliyun-node/alinode:v6.4.1-alpine as builder
+FROM registry.cn-hangzhou.aliyuncs.com/aliyun-node/alinode:v6.5.1-alpine as builder
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
   && apk update --no-cache -v \
@@ -11,7 +11,9 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
 
 RUN npm config set registry https://registry.npm.taobao.org
 
-RUN npm i -g npm yarn \
+RUN npm i -g npm \
+  && npm i -g pnpm yarn \
+  && npm i -g pnpm pnpm \
   && rm -rf /tmp/* && rm -rf $HOME/.npm/_cacache \
   && find /usr/lib/node_modules/ -name *.md | xargs rm -rf \
   && find /usr/lib/node_modules/ -name docs -type d | xargs rm -rf \

@@ -18,7 +18,7 @@ all: build publish
 
 .PHONY: $(RELEASES)
 $(RELEASES):
-	$(PWD)/node_modules/.bin/standard-version --release-as $@
+	npx standard-version --release-as $@
 	git push --follow-tags origin master
 
 .PHONY: build publish
