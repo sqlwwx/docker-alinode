@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/sqlwwx/docker-alinode/compare/v2.0.3...v2.1.0) (2021-05-10)
+
+
+### Features
+
+* add pnpm ([e3f0bb3](https://github.com/sqlwwx/docker-alinode/commit/e3f0bb3615b415b00069240e98f69f184dc5c6c9))
+
 ### [2.0.3](https://github.com/sqlwwx/docker-alinode/compare/v2.0.2...v2.0.3) (2020-12-18)
 
 ### [2.0.2](https://github.com/sqlwwx/docker-alinode/compare/v2.0.1...v2.0.2) (2020-12-18)
